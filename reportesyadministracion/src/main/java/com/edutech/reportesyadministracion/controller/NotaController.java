@@ -29,7 +29,7 @@ public class NotaController {
     //@Autowired
     //private EvaluacionService evaluacionservices;
 
-    @GetMapping("/listaNota")
+    @GetMapping("/listanota")
     public ResponseEntity<List<NotaEvaluacion>> listarnota(){
         List<NotaEvaluacion>notaevaluacion = notaservices.listarNota();
         if (notaevaluacion.isEmpty()) {

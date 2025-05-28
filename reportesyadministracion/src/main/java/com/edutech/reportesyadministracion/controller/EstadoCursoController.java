@@ -17,7 +17,7 @@ public class EstadoCursoController {
     @Autowired
     private EstadoCursoService estadoCursoService;
 
-    @GetMapping("/listar-Estados")
+    @GetMapping
     public ResponseEntity<List<EstadoCurso>> listarEstados() {
         List<EstadoCurso> estados = estadoCursoService.findAll();
         if (estados.isEmpty()) {

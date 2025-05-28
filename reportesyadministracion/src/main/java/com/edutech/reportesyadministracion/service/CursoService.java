@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.edutech.reportesyadministracion.model.Curso;
 import com.edutech.reportesyadministracion.model.EstadoCurso;
+import com.edutech.reportesyadministracion.model.StatusCursoEnum;
 //import com.edutech.reportesyadministracion.model.EstadoCurso;
 import com.edutech.reportesyadministracion.repository.CursoRepository;
 
@@ -27,7 +28,6 @@ public class CursoService {
 
    // @Autowired
     //private EstadoCursoService estadoCursoService; // Inyectar el servicio de EstadoCurso si es necesario
-    // Puedes agregar más servicios según sea necesario
 
 
     // Buscar todos los cursos
@@ -52,7 +52,9 @@ public class CursoService {
     //}
     
     //Contar cursos por estado
-    public Integer contarCursosPorEstado(EstadoCurso status) {
-    return cursoRepository.countByEstadoCurso(status);
-}
+    public Integer contarCursosPorEstado(StatusCursoEnum status, StatusCursoEnum statusCursoEnum) {
+        EstadoCurso estadoCurso = new EstadoCurso();
+        estadoCurso.setStatus(status);
+        return cursoRepository.countByEstadoCurso(estadoCurso);
+    }
 }
